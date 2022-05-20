@@ -3,7 +3,8 @@ package main
 import (
 	"flag"
 	"fmt"
-	lab2 "github.com/roman-mazur/architecture-lab-2"
+
+	lab2 "github.com/Ararni/postfix-to-infix"
 )
 
 var (
@@ -22,6 +23,10 @@ func main() {
 	//       }
 	//       err := handler.Compute()
 
-	res, _ := lab2.PrefixToPostfix("+ 2 2")
+	res, err := lab2.PostfixToInfix("42 2 - 3 * 5 +")
+	if err != nil {
+		fmt.Println(err)
+	}
+
 	fmt.Println(res)
 }
