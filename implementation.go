@@ -2,7 +2,7 @@ package lab2
 
 import (
 	"errors"
-	"fmt"
+
 	"strings"
 )
 
@@ -89,7 +89,7 @@ func PostfixToInfix(input string) (string, error) {
 	if size == 1 {
 		notEmpty = false
 	}
-	fmt.Println(size)
+
 	for i := 0; i < size && notValid && notEmpty; i++ {
 		if isOperator(inputStr[i]) {
 			if s.size() > 1 {
