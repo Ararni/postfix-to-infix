@@ -1,12 +1,33 @@
 package lab2
 
-// ComputeHandler should be constructed with input io.Reader and output io.Writer.
-// Its Compute() method should read the expression from input and write the computed result to the output.
+import (
+	"io"
+	"bufio"
+	"strings"
+)
+
 type ComputeHandler struct {
-	// TODO: Add necessary fields.
+	Input  io.Reader
+	Output io.Writer
 }
 
 func (ch *ComputeHandler) Compute() error {
-	// TODO: Implement.
+	buffer := new(strings.Builder)
+	_, err := io.Copy(buffer, ch.Input)
+	if err != nil {
+		return err
+	}
+
+	result, err := PostfixToInfix(buffer.String())
+	if err != nil {
+		return err
+	}
+
+	w := bufio.NewWriter(ch.Output) 
+  _, wErr := w.WriteString(result)
+  if wErr != nil {
+    return wErr
+  }
+	w.Flush()
 	return nil
 }
