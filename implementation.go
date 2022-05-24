@@ -2,8 +2,8 @@ package lab2
 
 import (
 	"errors"
-
 	"strings"
+	"unicode"
 )
 
 type StackNode struct {
@@ -56,14 +56,6 @@ func (this *MyStack) pop() string {
 	return temp
 }
 
-func (this MyStack) peek() string {
-	if !this.isEmpty() {
-		return this.top.data
-	} else {
-		return ""
-	}
-}
-
 func isOperator(text string) bool {
 	if text == "+" || text == "-" ||
 		text == "*" || text == "/" ||
@@ -74,7 +66,12 @@ func isOperator(text string) bool {
 }
 
 func isOperands(text string) bool {
-	return !isOperator(text)
+	for _, elem := range text {
+		if !unicode.IsDigit(elem) {
+			return false
+		}
+	}
+	return true
 }
 
 func PostfixToInfix(input string) (string, error) {
