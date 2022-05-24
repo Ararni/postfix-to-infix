@@ -14,7 +14,7 @@ type MySuite struct{}
 var _ = Suite(&MySuite{})
 
 func (s *MySuite) TestPostfixToInfixResults1(c *C) {
-	res1, err1 := PostfixToInfix("4 2 - 3 * 5 +")
+	res1, err1 := PostfixToInfix("2 - 3 * 5 +")
 	c.Check(res1, Equals, "(((4-2)*3)+5)")
 	c.Check(err1, IsNil)
 }
