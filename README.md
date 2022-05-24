@@ -7,7 +7,7 @@
  - Вероніка Шухман ([@nikelyandjelo](https://github.com/nikelyandjelo))
  - Крутіков Артем ([@cmertenok](https://github.com/cmertenok))
 
-Приклад успішної збірки:
+Приклад успішної збірки:https://github.com/Ararni/postfix-to-infix/runs/6574363822?check_suite_focus=true 
 Приклад неуспішної збірки:
 
 Пулл реквест:
